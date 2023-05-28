@@ -7,15 +7,15 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const Book = require("./model/books");
-const fs = require('fs');
-const csv = require('csv-parser');
+const fs = require("fs");
+const csv = require("csv-parser");
 
 //DB connection
 mongoose
   .connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
   })
   .then(() => {
     console.log("DB CONNECTED");
@@ -26,9 +26,9 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
-const authRoutes = require('./Routes/auth')
-const userRoutes = require('./Routes/user')
-const bookRoutes = require('./Routes/books')
+const authRoutes = require("./Routes/auth");
+const userRoutes = require("./Routes/user");
+const bookRoutes = require("./Routes/books");
 
 //My Routes
 app.use("/api", authRoutes);
